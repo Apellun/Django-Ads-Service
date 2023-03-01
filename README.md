@@ -1,30 +1,30 @@
 # Django course project
 
-<p>This is a Django api that provides a platform for users to create ads, coment on each other ads, edit and delete their own ads. Users can also filter ads with the query, the api checks if the title of the ad contain query's text. It is build with Django Rest Framework and Djoser library with a custom user model.</p>
+<p>This is a Django api that provides a platform for users to create ads, comment on each other ads, and edit and delete the ads they have created. Users can also search ads by title. The app is built with Django Rest Framework and Djoser library with a custom user model.</p>
 
 ## Main viewpoints
 
 <ins>api/ads/</ins>
-<p><b>GET</b> — Displays a list of ads, 4 for each page. Everyone can view it. Everyone also can search text in ads' titles by query parameter "title".<br>
-<b>POST</b> - Creates a new ad, for that requires the title and the price. Accessible for authorized users only.</p>
+<p><b>GET</b> — Displays a list of ads, 4 for each page. Everyone can view it. Everyone also can search ads by title with the query parameter "title".<br>
+<b>POST</b> - Creates a new ad, which requires the title and the price. Accessible for authorized users only.</p>
 
 <ins>api/ads/pk/</ins>
-<p><b>GET</b> - Displays detailed info on ad. Everyone can view it.<br>
-<b>PUT, PATCH</b> — Updates and partially updates info on the selected ad. Only ad owners and admin users can change ads.<br>
-<b>DELETE</b> — Deletes the selected ad. Only ad owners and admin users can delete ads.</p>
+<p><b>GET</b> - Displays detailed info on the ad. Everyone can view it.<br>
+<b>PUT, PATCH</b> — Updates and partially updates info on the selected ad. Only the ad's owners and admin users can change ads.<br>
+<b>DELETE</b> — Deletes the selected ad. Only the ad's owners and admin users can delete ads.</p>
 
 <ins>api/comments/</ins>
 <p><b>GET</b> - Displays a list of all users' comments. Accessible for authorized users only.<br>
-<b>POST</b> - Creates a comment, for that requires the text. Accessible for authorized users only. Gets the ad's that is commented id from the query parameter "ad".</p>
+<b>POST</b> - Creates a comment, for that requires the text. Accessible for authorized users only. Gets the ad's that is commented upon id from the query parameter "ad".</p>
 
 <ins>api/comments/pk/</u><br>
 <p><b>GET</b> - Displays detailed info on comment. Accessible for authorized users only.<br>
-<b>PUT, PATCH</b> — Updates and partially updates info on the selected comment. Only comment authors and admin users can change ads.<br>
-<b>DELETE</b> — Deletes the selected comment. Only comment authors and admin users can delete comments.</p>
+<b>PUT, PATCH</b> — Updates and partially updates info on the selected comment. Only the comment's authors and admin users can change ads.<br>
+<b>DELETE</b> — Deletes the selected comment. Only the comment's authors and admin users can delete comments.</p>
 
-<ins>users/ and authentication endpoints</u><br>
+<ins>api/users/ and authentication endpoints</u><br>
 
-<p>All of the main user and authentication endpoints work exactly like they are described in Djoser documentation. More info on it here: <i>https://djoser.readthedocs.io/en/latest/base_endpoints.html</i></p>
+<p>All of the main <ins>users/</u> and authentication endpoints work exactly like they are described in Djoser documentation. More info on it here: <i>https://djoser.readthedocs.io/en/latest/base_endpoints.html</i></p>
 
 ## Challenges
 
