@@ -24,7 +24,7 @@
 
 <ins>api/users/ and authentication endpoints</u><br>
 
-<p>All of the main <ins>users/</u> and authentication endpoints work exactly like they are described in Djoser documentation. More info on it here: <i>https://djoser.readthedocs.io/en/latest/base_endpoints.html</i></p>
+<p>All of the main <ins>users/</ins> and authentication endpoints work exactly like they are described in Djoser documentation. More info on it here: <i>https://djoser.readthedocs.io/en/latest/base_endpoints.html</i></p>
 
 ## Challenges
 
