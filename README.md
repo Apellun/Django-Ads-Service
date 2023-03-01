@@ -30,16 +30,21 @@
 
 ### Djoser + custom user model and user manager
 
-<p>For this project I used Djoser for the first time. I've read the documentation to implement it and used an example os custom User model and User manager to implement it correctly. Althogh the example of the User manager was provided by the course tutors, it still took some time to get it to work properly. I had the constant issue of it making a superuser through a ./manage.py command, but assign it a common user role, and then I got it to create superusers properly, it created common users with an admin role. I figured out the solution by now, but I still feel that I do not understand the User manager function in depth, information on the subject seems to be a bit scarce.</p>
+<p>For this project, I used Djoser for the first time. I've read the documentation and used a custom User model and User manager provided by course tutors to implement it correctly.
+It took some time to get the User manager to work properly. I had the constant issue of it making a superuser through a ./manage.py command, but assigning this user the non-admin role. When I got it to create superusers properly, it started creating common users with an admin role. I figured out the solution by now, but I still feel that I do not understand the User manager function in-depth, information on the subject seems to be a bit scarce.</p>
 
-### Different permissions for different actions of a viewset
+### Different permissions for different actions in a viewset
 
-<p>I also wrote multiple permissions for one viewset for the first time. It was not particularly hard, because I was able to find a solution online. Nevertheless, I took some time to figure out how to incorporate it into the project for everything to work correctly.</p>
+<p>I wrote multiple permissions for one viewset for the first time. It was not particularly hard, because I was able to find a solution online. Nevertheless, it took me some time to understand how to adjust it to the project correctly.</p>
 
 ### Auto user id attach
 
-<p>At first, the ad "create" action recieved value for the author field (a foreign key — owner user id) from the body of a query, like the title and the price of the ad. At some point I thought that it is weird to pass the id like that. I asked a senior colleague and he confirmed, that it is a weird thing to do, indeed. So I decided to rewrite the create method of a viewset for it to gain the author's id not through the body, but from the session details, automatically. I replaced a comments' create method as well, with some extra logic to also get the ad's id from a query parameter so that the comment would be tied to an ad also automatically. It's hardcode in a lot of ways, but I couldn't find a reference for a better way to do that.</p>
+<p>At first, the ads' endpoint "create" method has been receiving value for the author field (a foreign key — the ad owner's user id) from the body of a query, like the title and the price of the ad. At some point, I thought that it is weird to pass the id like that. I asked a senior colleague and he confirmed, that it is a weird thing to do, indeed.
+I decided to replace the default "create" method of the viewset so it could get the author's id not from the body, but from the session details, automatically. My current solution for that is a hardcode, since I couldn't find a reference for a better way to do that.
+I used that solution in the comments' endpoint "create" method as well, with some extra logic so it also gets the ad's id from a query parameter and the created comment gets tied to an ad automatically.</p>
 
 ### Password reset email confirmation
 
-<p>For this part, adding Djoser settings to settings.py was easy, understanding how they work was hard. I found a tutorial for testing this functionality here <i>https://saasitive.com/tutorial/django-rest-framework-reset-password/</i>, put it into my project and adjusted it, so it would pass without mistakes. This way, I understood how the insides of Django + Djoser do the work and also became sure that I set everything correctly. Since it is not my code, an it helped me to understand the process, I kept author's comments for future reference.</p>
+<p>For this part, adjusting the settings.py was easy, but understanding how the Djoser reset_password endpoints and their methods work was hard.
+I found a tutorial for testing this functionality here https://saasitive.com/tutorial/django-rest-framework-reset-password/, put it into my project and adjusted the code of both the test and the api so that the test passed without mistakes. It helped me understand the functionality and become sure that I set everything correctly.
+I kept the author's comments for future reference.</p>
