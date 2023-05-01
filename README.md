@@ -9,7 +9,7 @@
 <li><b>DB_USER/DB_PASSWORD/DB_NAME/DATABASE_URL</b>
 <br><i>You need those in case you want to run the app in production mode. By default it runs in development mode and uses a SQLite database. Postgres host, engine and port in the example.env are the default, you don't need to chang them if you use the default settings.</i>
 <li><b>EMAIL_HOST_USER/EMAIL_HOST_PASSWORD</b>
-<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example are the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i><br>
+<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example are the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i></li>
 <br>3. Rename the example.env into .env
 <br>3. Run the following commands in terminal:
 <br>pip install -r requirements.txt
