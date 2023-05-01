@@ -2,6 +2,12 @@
 
 <p>This is a Django api that provides a platform for users to create ads, comment on each other ads, and edit and delete the ads they have created. Users can also search ads by title. The app is built with Django Rest Framework and Djoser library with a custom user model.</p>
 
+<p> <b>To launch:</b>
+<br>1. Copy the repository onto your computer
+<br>2. Run the following commands in terminal:
+<br>pip install -r requirements.txt
+<br>python3 skymarket/manage.py runserver </p>
+
 ## Main viewpoints
 
 <ins>api/ads/</ins>
