@@ -2,15 +2,14 @@ from rest_framework import status
 from django.core import mail
 from django.test import TestCase
 
-class PasswordResetTest(TestCase):
 
+class PasswordResetTest(TestCase):
     register_url = "http://localhost/api/users/"
     activate_url = "http://localhost/api/users/activation/"
     login_url = "http://localhost/token/login/"
     send_reset_password_email_url = "http://localhost/api/users/reset_password/"
     confirm_reset_password_url = "http://localhost/api/users/reset_password_confirm/"
     
-    # user infofmation
     user_data = {
         "email": "test@example.com", 
         "first_name": "test_user",

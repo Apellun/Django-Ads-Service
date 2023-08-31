@@ -2,12 +2,12 @@ from rest_framework import pagination, viewsets, status, mixins
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import get_object_or_404
-
 from ads.filters import AdFilter
 from ads.models import Ad, Comment
 from users.models import User
 from ads.serializers import AdSerializer, AdDetailSerializer, AdCreateSerializer, CommentSerializer, CommentCreateSerializer
 from ads.permissions import AdsPermission, CommentsPermission
+
 
 class AdPagination(pagination.PageNumberPagination):
     page_size = 4
@@ -15,13 +15,11 @@ class AdPagination(pagination.PageNumberPagination):
     max_page_size = 4
 
 
-
 class AdViewSet(viewsets.ModelViewSet):
     filter_backends = (DjangoFilterBackend,)
     filterset_class = AdFilter
     permission_classes = [AdsPermission]
     pagination_class = AdPagination
-    
     queryset = Ad.objects.all()
 
     def get_serializer_class(self):
@@ -34,8 +32,7 @@ class AdViewSet(viewsets.ModelViewSet):
             return AdCreateSerializer
         return AdDetailSerializer
 
-
-    def create(self, request, *args, **kwargs):      
+    def create(self, request, *args, **kwargs):
         """
         Creates and AD with an automatically tied user instance.
         "Title" and "price" fields are required, other fields
@@ -43,34 +40,28 @@ class AdViewSet(viewsets.ModelViewSet):
         """ 
         data = request.data
 
-        entity = Ad()
-
         if 'title' not in data.keys():
-            return Response("Title can't be empty")
+            return Response("Title can't be empty", status=status.HTTP_400_BAD_REQUEST)
+        elif 'price' not in data.keys():
+            return Response("Price can't be empty", status=status.HTTP_400_BAD_REQUEST)
+        elif not type(data['price']) in (float, int):
+            return Response("Price should be a number", status=status.HTTP_400_BAD_REQUEST)
+
+        entity = Ad()
         entity.title = data['title']
-
-        if 'price' not in data.keys():
-            return Response("Price can't be empty")
-
-        try:
-            entity.price = float(data['price'])
-        except:
-            return Response("Price should be a number")
-
+        entity.price = data['price']
+        entity.author = User.objects.get(id=request.user.id)
+        
         if 'description' in data.keys():
             entity.description = data['description']
-
         if 'image' in data.keys():
             entity.image = request.FILES['image']
-
-        entity.author = User.objects.get(id=request.user.id)
-
+            
         entity.is_valid()
         entity.save()
 
         headers = mixins.CreateModelMixin.get_success_headers(self, data=data)
         return Response(data, status=status.HTTP_201_CREATED, headers=headers)
-
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -85,7 +76,6 @@ class CommentViewSet(viewsets.ModelViewSet):
             return CommentCreateSerializer
         return CommentSerializer
 
-    
     def create(self, request, *args, **kwargs):      
         """
         Creates a comment with an automatically tied user instance.
@@ -93,21 +83,21 @@ class CommentViewSet(viewsets.ModelViewSet):
         """ 
         data = request.data
 
-        entity = Comment()
-
         if 'text' not in data.keys():
-            return Response("Comment can't be empty")
+            return Response("A comment can't be empty", status=status.HTTP_400_BAD_REQUEST)
+        try:
+            ad_id = request.query_params["ad"]
+        except:
+            return Response('Ad is not specified', status=status.HTTP_400_BAD_REQUEST)
+        try:
+            ad = Ad.objects.get(id=ad_id)
+        except:
+            return Response("Ad doesn't exist", status=status.HTTP_400_BAD_REQUEST)
+        
+        entity = Comment()
         entity.text = data['text']
-
         entity.author = User.objects.get(id=request.user.id)
-
-        if not request.query_params["ad"]:
-            return Response ('Ad is not specified')
-        
-        ad_id = request.query_params["ad"]
-        
-        entity.ad = get_object_or_404(Ad, id=ad_id)
-
+        entity.ad = ad
         entity.is_valid()
         entity.save()
 

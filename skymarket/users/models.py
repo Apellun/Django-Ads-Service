@@ -3,15 +3,15 @@ from django.db import models
 from users.managers import UserManager
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
-
 from users.managers import UserManager
+
 
 class UserRoles(models.TextChoices):
         ADMIN = "admin", _("Admin")
         USER = "user", _("User")       
 
-class User(AbstractBaseUser):
 
+class User(AbstractBaseUser):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone = PhoneNumberField(unique=True)

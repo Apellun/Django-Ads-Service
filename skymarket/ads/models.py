@@ -1,6 +1,4 @@
 from django.db import models
-from django.core.validators import ValidationError
-
 from users.models import User
 
 
@@ -17,7 +15,6 @@ class Ad(models.Model):
 
     def is_valid(self):
         pass
-
 
     class Meta:
         verbose_name = 'Ad'

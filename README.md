@@ -1,19 +1,21 @@
-# Django ad api
+# Django course project
 
 <p>This is a Django api that provides a platform for users to create ads, comment on each other ads, and edit and delete the ads they have created. Users can also search ads by title. The app is built with Django Rest Framework and Djoser library with a custom user model.</p>
 
 <p> <b>To launch:</b>
-<br>1. Copy the repository onto your computer
+<br>1. Copy the repository to your computer
 <br>2. You need to insert the following environment variables into the example.env file:
 <li><b>SECRET_KEY</b> (any string, you can use the one in the example)
 <li><b>DB_USER/DB_PASSWORD/DB_NAME/DATABASE_URL</b>
 <br><i>You need those in case you want to run the app in production mode. By default it runs in development mode and uses a SQLite database. Postgres host, engine and port in the example.env are the default, you don't need to chang them if you use the default settings.</i>
 <li><b>EMAIL_HOST_USER/EMAIL_HOST_PASSWORD</b>
-<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example are the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i></li>
+<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example are the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i><br>
 <br>3. Rename the example.env into .env
 <br>3. Run the following commands in terminal:
-<br>pip install -r requirements.txt
-<br>python3 skymarket/manage.py runserver </p>
+`pip install -r requirements.txt`<br>
+`python3 skymarket/manage.py migrate`
+`python3 skymarket/manage.py runserver`
+The list of all routes and their possible usage is going to be accessible at localhost:port/api/schema/swagger-ui
 
 ## Main viewpoints
 
@@ -38,8 +40,9 @@
 <ins>api/users/ and authentication endpoints</u><br>
 
 <p>All of the main <ins>users/</ins> and authentication endpoints work exactly like they are described in Djoser documentation. More info on it here: <i>https://djoser.readthedocs.io/en/latest/base_endpoints.html</i></p>
+<p>
 
-## Challenges
+##Challenges
 
 ### Djoser + custom user model and user manager
 
@@ -52,7 +55,7 @@ It took some time to get the User manager to work properly. I had the constant i
 
 ### Auto user id attach
 
-<p>At first, the ads' endpoint "create" method has been receiving value for the author field (a foreign key — the ad owner's user id) from the body of a query, like the title and the price of the ad. At some point, I thought that it is weird to pass the id like that. I asked a senior colleague and he confirmed, that it is a weird thing to do, indeed.
+<p>At first, the ads' endpoint "create" method has been receiving value for the author field (a foreign key — the ad owner's user id) from the body of a query, like the title and the price of the ad. At some point, I thought that it is weird to pass the id like that. I asked a senior developer and he confirmed, that it is a weird thing to do indeed.
 I decided to replace the default "create" method of the viewset so it could get the author's id not from the body, but from the session details, automatically. My current solution for that is a hardcode, since I couldn't find a reference for a better way to do that.
 I used that solution in the comments' endpoint "create" method as well, with some extra logic so it also gets the ad's id from a query parameter and the created comment gets tied to an ad automatically.</p>
 
@@ -60,4 +63,6 @@ I used that solution in the comments' endpoint "create" method as well, with som
 
 <p>For this part, adjusting the settings.py was easy, but understanding how the Djoser reset_password endpoints and their methods work was hard.
 I found a tutorial for testing this functionality here https://saasitive.com/tutorial/django-rest-framework-reset-password/, put it into my project and adjusted the code of both the test and the api so that the test passed without mistakes. It helped me understand the functionality and become sure that I set everything correctly.
-I kept the author's comments for future reference.</p>
+I kept the author's comments for future reference.
+I'm also still in the process of trying to understand how to create a proper view for the
+password reset confirmation, so this function remains a work in progress.</p>
