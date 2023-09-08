@@ -7,14 +7,16 @@
 <br>2. You need to insert the following environment variables into the example.env file:
 <li><b>SECRET_KEY</b> (any string, you can use the one in the example)
 <li><b>DB_USER/DB_PASSWORD/DB_NAME/DATABASE_URL</b>
-<br><i>You need those in case you want to run the app in production mode. By default it runs in development mode and uses a SQLite database. Postgres host, engine and port in the example.env are the default, you don't need to chang them if you use the default settings.</i>
+<br><i>You need those in case you want to run the app in production mode. By default, it runs in development mode and uses a SQLite database. Postgres host, engine, and port in the example.env are the default, you don't need to change them if you use the default settings.</i>
 <li><b>EMAIL_HOST_USER/EMAIL_HOST_PASSWORD</b>
-<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example are the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i><br>
+<br><i>In case you want to use the password reset tool, you need to set up an SMTP server. The host/port in the example is the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail.</i><br>
 <br>3. Rename the example.env into .env
-<br>3. Run the following commands in terminal:
-`pip install -r requirements.txt`<br>
-`python3 skymarket/manage.py migrate`
-`python3 skymarket/manage.py runserver`
+<br>3. Run the following commands in the terminal:
+  <p></p>
+  pip install -r requirements.txt<br>
+  python3 skymarket/manage.py migrate<br>
+  python3 skymarket/manage.py runserver<br>
+  <p></p>
 The list of all routes and their possible usage is going to be accessible at localhost:port/api/schema/swagger-ui
 
 ## Main viewpoints
