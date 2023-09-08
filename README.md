@@ -56,8 +56,8 @@ It took some time to get the User manager to work properly. I had the constant i
 ### Auto user id attach
 
 <p>At first, the ads' endpoint "create" method has been receiving value for the author field (a foreign key — the ad owner's user id) from the body of a query, like the title and the price of the ad. At some point, I thought that it is weird to pass the id like that. I asked a senior developer and he confirmed, that it is a weird thing to do indeed.
-I decided to replace the default "create" method of the viewset so it could get the author's id not from the body, but from the session details, automatically. My current solution for that is a hardcode, since I couldn't find a reference for a better way to do that.
-I used that solution in the comments' endpoint "create" method as well, with some extra logic so it also gets the ad's id from a query parameter and the created comment gets tied to an ad automatically.</p>
+I decided to replace the default "create" method of the viewset so it could get the author's id not from the body, but from the session details, automatically. My solution for that was a lengthy hardcode, since I couldn't find a reference for a better way to do that. I used that solution in the comments' endpoint "create" method as well.
+After having done all that, after some time, I found a one string solution to replace all that hardcode.</p>
 
 ### Password reset email confirmation
 
