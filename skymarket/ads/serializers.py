@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from ads.models import Ad, Comment
-from users.models import User
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -20,12 +19,7 @@ class CommentCreateSerializer(serializers.ModelSerializer):
         slug_field="id",
         required = True
     )
-
-    author = serializers.SlugRelatedField(
-        queryset = User.objects.all(),
-        slug_field= "id",
-        required = True
-    )
+    author = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Comment
@@ -55,10 +49,7 @@ class AdDetailSerializer(serializers.ModelSerializer):
 
 
 class AdCreateSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(
-        queryset = User.objects.all(),
-        slug_field= "first_name"
-    )
+    author = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Ad
