@@ -1,5 +1,7 @@
 # Django ad api
 
+<p><b>Technologies:</b> Django, Djoser, PostgresQL, SQLite.</p>
+
 <p>This is a Django api that provides a platform for users to create ads, comment on each other ads, and edit and delete the ads they have created. Users can also search ads by title. The app is built with Django Rest Framework and Djoser library with a custom user model.</p>
 
 <p> <b>To launch:</b>
