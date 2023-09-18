@@ -16,7 +16,7 @@ Postgres host, engine, and port in the example.env are the default, you don't ne
 <li><b>EMAIL_HOST_USER/EMAIL_HOST_PASSWORD</b>
 <br><i>The host/port in the example is the default host/port for the Gmail SMTP service, you don't need to change them if you decide to go with Gmail. You only need to enter your username and password for your SMTP server. If you don't know how to get them, ask Google.</i><br>
 <br>3. Rename the example.env into .env
-<br>3. Run the following commands in the terminal:
+<br>3. Run the following commands in the terminal from the project folder:
   <p></p>
   pip install -r requirements.txt<br>
   python3 skymarket/manage.py migrate<br>
@@ -91,7 +91,7 @@ I'm also still in the process of trying to understand how to create a proper vie
 <li><b>EMAIL_HOST_USER/EMAIL_HOST_PASSWORD</b>
 <br><i>Хост и порт в примере — дефолтные для Gmail SMTP, их менять не нужно, если вы исопльзуете Gmail. Нужно ввести только имя пользователя и пароль для вашего SMTP сервера. Если не знаете, откуда их взять, спросите Google.</i><br>
 <br>3. Переименуйте example.env в .env
-<br>3. В терминале запустите следующие команды:
+<br>3. Из папки проекта, в терминале, запустите следующие команды:
   <p></p>
   pip install -r requirements.txt<br>
   python3 skymarket/manage.py migrate<br>
