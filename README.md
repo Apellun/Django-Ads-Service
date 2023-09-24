@@ -54,7 +54,7 @@ The list of all API routes is going to be accessible at localhost:port/api/schem
 ### Djoser + custom user model and user manager
 
 <p>For this project, I used Djoser for the first time. I used a custom User model and User manager provided by course tutors in order to implement it correctly.
-It took some time to get the User manager to work properly. I had a constant issue with making a superuser through a ./manage.py command — the custom manager did not assign the admin role to the superuser. Eventually, what helped was to separately specify roles for each type of user.</p>
+It took some time to get the User manager to work properly. I had a constant issue with making a superuser through a ./manage.py command — the custom manager did not assign the admin role to the superuser. Eventually, what helped was separately specifying the roles for the each type of user and making some of the arguments optional in the functions for creating users.</p>
 
 ### Different permissions for different actions in a viewset
 
@@ -129,7 +129,7 @@ I'm still trying to understand how to create a proper view for the password rese
 ### Djoser + кастомные модель и менеджер пользователя
 
 <p>В этом проэкте я впервые исользовала Djoser. Я использовала кастомные модель и менеджер пользователя из подсказки по проекту на курсе, чтобы правильно использовать эту библиотеку в проекте.
-Какое-то время ушло на то, чтобы поправить кастомный менеджер. У меня постоянно возникала проблема с тем, что при создании суперюзера через manage.py, ему не присваивалась роль администратора. Мне пришлось попробовать несколько вариантов это поправить, и в итоге отдельно прописать задание ролей каждому типу пользователя.</p>
+Какое-то время ушло на то, чтобы поправить кастомный менеджер. У меня постоянно возникала проблема с тем, что при создании суперюзера через manage.py, ему не присваивалась роль администратора. Мне пришлось попробовать несколько вариантов это поправить. В итоге проблема решилась, когда я отдельно прописала задание ролей каждому типу пользователя, а также сделала опциональными некоторые аргументы функций создания пользователя.</p>
 
 ### Разные разрешения для разных действий во вьюсете
 
