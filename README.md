@@ -4,7 +4,7 @@
 
 <p><b>Technologies:</b> Django, Djoser, PostgresQL, SQLite.</p>
 
-<p>This is a Django API for a service where users can create ads, view each other's ads and comment on them. The API is built with Django Rest Framework and Djoser with a custom user model.</p>
+<p>This is a Django API for a service that allows users to create ads, view each other's ads and comment on them. The API is built with Django Rest Framework and Djoser with a custom user model.</p>
 
 <p> <b>To launch:</b>
 <br>1. Copy the repository to your computer
