@@ -17,7 +17,6 @@ comments_router.register('api/comments', CommentViewSet)
 
 urlpatterns = [
     path("api/admin", admin.site.urls),
-    path("api/redoc-tasks", include("redoc.urls")),
     path('', include('djoser.urls.jwt')),
     path('api/schema', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
