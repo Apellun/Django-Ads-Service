@@ -6,8 +6,6 @@
 
 <p>This is a Django API for a service where users can create ads, view each other's ads and comment on them. The API is built with Django Rest Framework and Djoser with a custom user model.</p>
 
-<i>Note: The requirements.txt file is so extensive because recently, after updating Django, I encountered an error while launching the API. So just in case I have updated all packages and put them into requirements, to make sure that the API runs correctly.</i>
-
 <p> <b>To launch:</b>
 <br>1. Copy the repository to your computer
 <br>2. You need to insert the following environment variables into the example.env file:
@@ -81,8 +79,6 @@ I'm still trying to understand how to create a proper view for the password rese
 <p><b>Технологии:</b> Django, Djoser, PostgresQL, SQLite.</p>
 
 <p>Это API на Django для сервиса, в котором пользователи могут создавать объявления и просматривать/комментировать объявления друг друга. Чтобы его построить, я использовала Django Rest Framework и Djoser с кастомной моделью пользователя.</p>
-
-<i>Замечание: requirements.txt такой длинный, потому что недавно я обновляла Django и столкнулась с ошибкой при запуске API (несовместимость с каким-то другим пакетом, каким конкретно — я не выяснила). На всякий случай, я обновила все пакеты и сложила их в requirements, чтобы API точно везде запускался.</i>
 
 ## Как запустить:
 <br>1. Скопируйте репозиторий на компьютер
