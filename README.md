@@ -2,9 +2,9 @@
 
 # Django API for ads
 
-<p><b>Technologies:</b> Django, Djoser, PostgresQL, SQLite.</p>
+<p>Django REST API for an ads service. Provides CRUD for users, ads, and comments.
 
-<p>This is a Django API for a service where users can create ads, view each other's ads and comment on them. The API is built with Django Rest Framework and Djoser with a custom user model.</p>
+API has a custom User model, and uses a Djoser library for authorization, authentication, and CRUD for users. API works with an SQLite database in the development mode and a PostgreSQL database in the production mode. Has Swagger documentation.</p>
 
 <p> <b>To launch:</b>
 <br>1. Copy the repository to your computer
@@ -76,9 +76,9 @@ I'm still trying to understand how to create a proper view for the password rese
 
 # API для размещения объявлений на Django
 
-<p><b>Технологии:</b> Django, Djoser, PostgresQL, SQLite.</p>
+<p>REST API на Django для сервиса объявлений. Предоставляет CRUD для пользователей, объявлений и комментариев.
 
-<p>Это API на Django для сервиса, в котором пользователи могут создавать объявления и просматривать/комментировать объявления друг друга. Чтобы его построить, я использовала Django Rest Framework и Djoser с кастомной моделью пользователя.</p>
+В API используется кастомная модель пользователя и библиотека Djoser для CRUD польователей, авторизации и аутентификации. API работает с базой данных SQLite в режиме разработки и с PostgreSQL в режиме продакшена. К API подключена документация Swagger.</p>
 
 ## Как запустить:
 <br>1. Скопируйте репозиторий на компьютер
